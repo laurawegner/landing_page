@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mindlet - Capture & Organize Your Thoughts Instantly</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
     <style>
         body {
             margin: 0;
@@ -16,6 +18,7 @@
         header {
             padding: 30px;
             text-align: center;
+            animation: fadeIn 1s ease-in-out;
         }
         header h1 {
             font-size: 3rem;
@@ -34,10 +37,12 @@
             text-decoration: none;
             border-radius: 25px;
             font-weight: 600;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
         }
         .cta-button:hover {
             background-color: #db2777;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
         }
         .hero {
             display: flex;
@@ -45,12 +50,21 @@
             align-items: center;
             padding: 50px;
             text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            margin-top: 20px;
         }
         .features {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             padding: 50px;
+            animation: fadeIn 2s ease-in-out;
         }
         .feature-card {
             background-color: #ffffff;
@@ -60,12 +74,40 @@
             margin: 20px;
             max-width: 320px;
             text-align: center;
+            transition: all 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+        }
+        .feedback-form {
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+        .feedback-form h2 {
+            color: #5b21b6;
+            margin-bottom: 20px;
+        }
+        iframe {
+            border-radius: 10px;
         }
         footer {
             text-align: center;
             padding: 20px;
             background-color: #5b21b6;
             color: white;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
         }
     </style>
 </head>
@@ -80,7 +122,7 @@
         <h2>Speak Freely, Live Clearly</h2>
         <p>Whether you're managing a busy home, leading a business, or juggling both, Mindlet keeps track of your spoken thoughts and transforms them into actionable items, clear reminders, and organized insights.</p>
     
-        <video width="640" height="360" controls autoplay muted>
+        <video controls autoplay muted>
             <source src="Video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -101,8 +143,22 @@
         </div>
     </section>
 
+    <section class="feedback-form">
+        <h2>We'd love your feedback!</h2>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf1kMkB46rjtLGDa5lUdw-gOMtXgYCGTBL1QfhxcCYpOzoUjw/viewform?embedded=true"
+            width="100%" height="788" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </section>
+
     <footer>
         <p>&copy; 2024 Mindlet. Organize Your Mind, Simplify Your Life.</p>
     </footer>
+
+    <script>
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('.feedback-form').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
+
